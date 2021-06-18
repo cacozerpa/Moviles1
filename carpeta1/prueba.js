@@ -1,6 +1,3 @@
 console.log("nada")
-<<<<<<< Updated upstream
 console.log("algo")
-=======
-
->>>>>>> Stashed changes
+console.log("ultima prueba")
