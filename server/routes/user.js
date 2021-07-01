@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllUsers, getUserByID, createUser, updateUser, deleteUser }  = require('../routes/user');
+const { getAllUsers, getUserByID, createUser, updateUser, deleteUser }  = require('../helpers/user.helper');
 
 router.get('/', getAllUsers);
 router.get('/:id', getUserByID)

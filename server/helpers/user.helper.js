@@ -1,8 +1,7 @@
 const objectId = require('mongoose').Types.ObjectId
-const mongoose = require('../db')
 
 const { User } = require('../models/user.js');
-
+const mongoose = require('../db')
 
 const getAllUsers = (res) => {
     User.find((err, doc) => {
