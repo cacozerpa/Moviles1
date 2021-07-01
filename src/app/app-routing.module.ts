@@ -15,10 +15,14 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
-  /*{
+  {
     path: 'dashboard',
-    loadChildren: () => import('./').then(m => )
-  }*/
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },  {
+    path: 'searchlist',
+    loadChildren: () => import('./searchlist/searchlist.module').then( m => m.SearchlistPageModule)
+  },
+
 
 ];
 
