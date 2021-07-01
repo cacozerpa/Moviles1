@@ -1,12 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Sign in to Rotten Tomatoes
+    <ion-title size="large">
+      RottenTomatoes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content >
   
+<div id="header">
+  <h1>Sing Up in to RottenTomatoes To have Some Fun!</h1>
+</div>
+<form class="form">
+<ion-input type="text" placeholder="Username"><ion-icon slot="start" name="person-outline"></ion-icon></ion-input>
+<ion-input type="email" placeholder="Email"><ion-icon slot="start" name="mail-outline"></ion-icon></ion-input>
+<ion-input type="email" placeholder="Confirm Email"><ion-icon slot="start" name="mail-outline"></ion-icon></ion-input>
+<ion-input type="password" placeholder="Password"><ion-icon slot="start" name="key-outline"></ion-icon></ion-input>
+<ion-input type="password" placeholder="Confirm Password"><ion-icon slot="start" name="key-outline"></ion-icon></ion-input>
 
+<ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+  Sign Up
+  <ion-icon slot="start" name="add-outline"></ion-icon>
+</ion-button>
+
+<ion-button class="register" (click)="goToSignIn()" expand="block" fill="clear" shape="round">
+  Sign In
+  <ion-icon slot="start" name="log-in-outline"></ion-icon>
+ </ion-button> 
+</form>
 </ion-content>
