@@ -3,8 +3,8 @@ const objectId = require('mongoose').Types.ObjectId
 const { User } = require('../models/user.js');
 const mongoose = require('../db')
 
-const getAllUsers = (res) => {
-    User.find((err, doc) => {
+const getAllUsers = async (req, res) => {
+    await User.find((err, doc) => {
         if(!err){
             res.send(doc)
         }else{
@@ -13,11 +13,11 @@ const getAllUsers = (res) => {
     })
 }
 
-const getUserByID = (req, res) => {
+const getUserByID = async (req, res) => {
     if (!objectId.isValid(req.params.id))
         return res.status(400).send(`No existe un usuario con este id`);
 
-    User.findById(req.params.id, (err, doc) => {
+    await User.findById(req.params.id, (err, doc) => {
         if (!err){ 
             res.send(doc); 
         }else{ 
@@ -26,14 +26,14 @@ const getUserByID = (req, res) => {
     });
 }
 
-const createUser = (res) => {
+const createUser = async (req, res) => {
     const user = mongoose.model({
         username: { type: String },
         pass: { type: String },
         email: { type: String }
     });
 
-    user.save((err, doc) => {
+    await user.save((err, doc) => {
         if(!err){
             res.send('Usuario creado satisfactoriamente: ' + '\n' + doc)
         }else{
@@ -42,12 +42,12 @@ const createUser = (res) => {
     })
 }
 
-const updateUser = (req, res) => {
+const updateUser = async (req, res) => {
     if(!objectId.isValid(req.params.id)){
         return res.status(400).send('No se encontro al usuario con este id')
     }
 
-    User.findOneAndUpdate(req.params.id, { $set: {
+    await User.findOneAndUpdate(req.params.id, { $set: {
         username: req.body.username,
         pass: req.body.pass,
         email: req.body.email,
@@ -60,12 +60,12 @@ const updateUser = (req, res) => {
     })
 }
 
-const deleteUser = (req, res) => {
+const deleteUser = async (req, res) => {
     if(!objectId.isValid(req.params.id)){
         return res.status(400).send('No se encontro al usuario con este id')
     }
 
-    User.findByIdAndRemove(req.params.id, (err, doc) => {
+    await User.findByIdAndRemove(req.params.id, (err, doc) => {
         if(!err){
             res.send('El usuario fue eliminado satisfactoriamente: ' + '\n' + doc)
         }else{
