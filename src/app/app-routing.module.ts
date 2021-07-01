@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'searchlist',
     loadChildren: () => import('./searchlist/searchlist.module').then( m => m.SearchlistPageModule)
   },
+  {
+    path: 'movies',
+    loadChildren: () => import('./movies/movies.module').then( m => m.MoviesPageModule)
+  },
 
 
 ];

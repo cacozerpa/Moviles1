@@ -1,11 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>RottenTomatoes</ion-title>
+    <ion-title size="large">RottenTomatoes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list class="ion-no-padding">
+    <ion-card *ngFor="let movie of movies">
+      <img [src]="photo.thumbnailUrl" width="500" height="500px">
+      <ion-card-content>
+        <p>{{photo.title}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>
 
 <app-navbar></app-navbar>
