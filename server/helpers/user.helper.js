@@ -2,6 +2,7 @@ const objectId = require('mongoose').Types.ObjectId
 
 const { User } = require('../models/user.js');
 const mongoose = require('../db')
+const bcrypt = require('bcrypt');
 
 const getAllUsers = async (req, res) => {
     await User.find((err, doc) => {
@@ -27,19 +28,35 @@ const getUserByID = async (req, res) => {
 }
 
 const createUser = async (req, res) => {
-    const user = mongoose.model({
-        username: { type: String },
-        pass: { type: String },
-        email: { type: String }
-    });
 
-    await user.save((err, doc) => {
-        if(!err){
-            res.send('Usuario creado satisfactoriamente: ' + '\n' + doc)
+    const {username, email, ConfEmail, password, ConfPass} = req.body;
+
+    if(email != ConfEmail) {
+        res.status(400).send('Email Does not match!')
+    }else{
+        if(password != ConfPass){
+            res.status(400).send('Password does not match!');
         }else{
-             res.send('Error en crear usuario: ' + '\n' + err)
+            User.findOne({email}).then(savedEmail => {
+                if(savedEmail){
+                    res.status(400).send('Email already Exist!');
+                }else{
+                    bcrypt.hash(password, 12).then(hashPass => {
+                        const newUser = new User({
+                            username,
+                            email,
+                            password: hashPass
+                        }).save(function(err, newUser){
+                            if(err) throw err;
+                            res.status(200).send(`User Created ${username}`);
+                        })
+                    })
+                }
+            })
         }
-    })
+
+    }
+    
 }
 
 const updateUser = async (req, res) => {
