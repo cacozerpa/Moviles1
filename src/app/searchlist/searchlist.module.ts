@@ -8,12 +8,15 @@ import { SearchlistPageRoutingModule } from './searchlist-routing.module';
 
 import { SearchlistPage } from './searchlist.page';
 
+import { ComponentsModule } from '../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SearchlistPageRoutingModule
+    SearchlistPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [SearchlistPage]
 })

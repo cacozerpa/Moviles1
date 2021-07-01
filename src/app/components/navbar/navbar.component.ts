@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit{
   }
 
   goToSearchList() {
-    this.router.navigate(['/searhlist']);
+    this.router.navigate(['/searchlist']);
   }
 
 }
