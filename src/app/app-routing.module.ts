@@ -8,12 +8,17 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
-  },  {
+  },
+  {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  /*{
+    path: 'dashboard',
+    loadChildren: () => import('./').then(m => )
+  }*/
 
 ];
 
