@@ -1,5 +1,6 @@
 //Paquetes
 const express = require('express');
+require('dotenv').config({path:'../.env'});
 
 //Local
 const db = require('./db.js')
@@ -8,6 +9,8 @@ const router = require('./routes/user')
 let app = express();
 app.use(express.json());
 
-app.listen(3000, () => console.log('Server running on port 3000'))
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 app.use('/users', router)
