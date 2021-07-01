@@ -32,14 +32,14 @@ const createUser = async (req, res) => {
     const {username, email, ConfEmail, password, ConfPass} = req.body;
 
     if(email != ConfEmail) {
-        res.status(400).send('Email Does not match!')
+        res.status(400).send('Los email no coinciden!')
     }else{
         if(password != ConfPass){
-            res.status(400).send('Password does not match!');
+            res.status(400).send('Las contraseñas no coinciden!');
         }else{
             User.findOne({email}).then(savedEmail => {
                 if(savedEmail){
-                    res.status(400).send('Email already Exist!');
+                    res.status(400).send('El email ya existe!');
                 }else{
                     bcrypt.hash(password, 12).then(hashPass => {
                         const newUser = new User({
@@ -48,7 +48,7 @@ const createUser = async (req, res) => {
                             password: hashPass
                         }).save(function(err, newUser){
                             if(err) throw err;
-                            res.status(200).send(`User Created ${username}`);
+                            res.status(200).send(`Usuario ${username} creado existosamente!`);
                         })
                     })
                 }
