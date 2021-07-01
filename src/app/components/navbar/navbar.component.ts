@@ -15,8 +15,8 @@ export class NavbarComponent implements OnInit{
   goToHome() {
     this.router.navigate(['/dashboard']);
   }
-  goToSignUp() {
-    this.router.navigate(['/register']);
+  goToProfile() {
+    this.router.navigate(['/profile']);
   }
   goToSignIn() {
     this.router.navigate(['/home']);
