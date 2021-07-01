@@ -14,6 +14,19 @@ const getAllUsers = async (req, res) => {
     })
 }
 
+const getUserByUsername = async (username) => {
+    if (!objectId.isValid())
+    return res.status(400).send(`No existe un usuario con ese nombre`);
+
+await User.findById(username, (err, doc) => {
+    if (!err){ 
+        res.send(doc); 
+    }else{ 
+        res.send('No se encontro al usuario con este nombre'); 
+    }
+});
+}
+
 const getUserByID = async (req, res) => {
     if (!objectId.isValid(req.params.id))
         return res.status(400).send(`No existe un usuario con este id`);
@@ -91,4 +104,4 @@ const deleteUser = async (req, res) => {
     })
 }
 
-module.exports = { getAllUsers, getUserByID, createUser, updateUser, deleteUser }
+module.exports = { getAllUsers, getUserByID, createUser, updateUser, deleteUser, getUserByUsername }
