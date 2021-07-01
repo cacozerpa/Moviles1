@@ -11,14 +11,3 @@ mongoose.connect('mongodb://localhost:27017/Moviles1', { useNewUrlParser: true, 
 });
 
 module.exports = mongoose;
-
-// module.exports = function Connection() {
-//     const mongoose = require('mongoose')
-//       let db
-//       if(!db) {
-//         db = mongoose.connect('mongodb://localhost:27017/globalsys', 
-//         { useMongoClient: true })
-
-//         return db
-//       }
-// } 
