@@ -21,6 +21,13 @@ router.post('/', (req, res) => {
         pass: req.body.pass,
         email: req.body.email
     })
+    user.save((err, doc) => {
+        if(!err){
+            res.send(doc);
+        }else{
+            console.log('Error en guardar el usuario: ', err);
+        }
+    })
 })
 
 module.exports = router;
