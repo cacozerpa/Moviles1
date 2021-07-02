@@ -16,7 +16,7 @@ export class MoviesService {
   constructor(private httpClient: HttpClient) { }
 
   getMovies(){
-    return this.httpClient.get<any>('https://www.omdbapi.com/?i=tt3896198&apikey=60f3ec');
+    return this.httpClient.get<any>('http://www.omdbapi.com/?apikey=60f3ec&t=guardians+of+the+galaxy');
   }
 
 }

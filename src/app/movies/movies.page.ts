@@ -9,7 +9,7 @@ import { MoviesService } from '../services/movies.service';
 })
 export class MoviesPage implements OnInit {
 
-    movies = [] ;
+    movies: string[]
 
   constructor(private moviesServices: MoviesService) { }
 
