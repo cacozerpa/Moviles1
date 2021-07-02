@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 
 export class MoviesService {
 
-  movies = [];
+  movies: string[]
 
   constructor(private httpClient: HttpClient) { }
 
