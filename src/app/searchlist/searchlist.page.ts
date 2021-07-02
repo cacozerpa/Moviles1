@@ -8,15 +8,10 @@ import { MoviesService } from '../services/movies.service';
   styleUrls: ['./searchlist.page.scss'],
 })
 export class SearchlistPage implements OnInit {
-  movies = [];
-  constructor(private moviesServices: MoviesService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-    this.movies = this.moviesServices.getMovies();
-  }
 
-  ionViewWillEnter() {
-    this.movies = this.moviesServices.getMovies();
   }
 
 }

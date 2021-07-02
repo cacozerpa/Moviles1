@@ -17,12 +17,11 @@ export class MoviesPage implements OnInit {
   ngOnInit() {
     this.moviesServices.getMovies()
     .subscribe(data => {
-      this.movies = data
-    })
+      this.movies = data;
+    });
   }
 
   // ionViewWillEnter() {
-    
   // }
 
 }
