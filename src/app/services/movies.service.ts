@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,8 +12,8 @@ export class MoviesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getMovies(){
-    return this.httpClient.get<>('http://www.omdbapi.com/?apikey=60f3ec&t=godfather');
+  getMovies(): Observable<any>{
+    return this.httpClient.get<any>('http://www.omdbapi.com/?apikey=60f3ec&t=godfather');
   }
 
 }

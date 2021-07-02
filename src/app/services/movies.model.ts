@@ -1,6 +1,6 @@
 export interface Movie {
-    id: string;
-    title: string;
-    imageURL: string;
-    comments: string[];
+    id: { type: String };
+    title: { type: String };
+    imageURL: { type: String };
+    comments: { type: String[] };
 };
