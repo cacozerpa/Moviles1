@@ -49,7 +49,7 @@
       <ion-back-button defaultHref="/movies"> </ion-back-button>
     </ion-buttons>
     <ion-title>
-      Data from API
+      Movies
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -58,7 +58,7 @@
     <ion-list>
       <ion-card *ngFor="let movie of movies">
         <ion-card-content>
-          <p>Title: {{movie.Title}}</p>
+          <p>{{ movie }}</p>
         </ion-card-content>
       </ion-card>
     </ion-list>
