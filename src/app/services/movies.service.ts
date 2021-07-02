@@ -1,42 +1,21 @@
 /* eslint-disable max-len */
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+
 import { Movie }from './movies.model';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
-  private movies: Movie[] = [
-    {
-      id: '1',
-      title: 'infinite',
-      imageURL:'https://m.media-amazon.com/images/M/MV5BNGNiOTBkYzUtMzdiNi00ZTlmLWI3M2EtNWU2ODZiNDA4NzA1XkEyXkFqcGdeQXVyNTkyODg0Njk@._V1_UY1200_CR85,0,630,1200_AL_.jpg',
-      comments: ['awesome', 'wonderful experience']
-    },
-    {
-      id: '2',
-      title: 'SkyFall',
-      imageURL:'https://th.bing.com/th/id/OIP.0gIIum5aT5tT3dYNiwwAQgHaKj?pid=ImgDet&rs=1',
-      comments: ['awesome', 'wonderful experience']
-    },
-    {
-      id: '3',
-      title: 'The Hustle',
-      imageURL:'https://upload.wikimedia.org/wikipedia/commons/a/a1/Statue_of_Liberty_7.jpg',
-      comments: []
-    },
-  ];
-  constructor() { }
+ 
+  constructor(private httpClient: HttpClient) { }
 
-  getMovies(): Movie[] {
-    return [...this.movies];
+  getMovies(): Observable<Movie>{
+
+    return this.httpClient.get<Movie>('http://www.omdbapi.com/?apikey=60f3ec&t=godfather')
   }
 
-  getMovie(movieId: string) {
-   return {
-    ...this.movies.find(movie =>
-     movie.id === movieId
-    )
-   };
-  }
 }

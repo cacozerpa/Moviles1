@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { Movie }from '../services/movies.model';
 import { MoviesService } from '../services/movies.service';
 
 @Component({
@@ -9,15 +11,18 @@ import { MoviesService } from '../services/movies.service';
 })
 export class MoviesPage implements OnInit {
 
-  movies = [];
+   movies: Movie;
   constructor(private moviesServices: MoviesService, private router: Router) { }
 
   ngOnInit() {
-    this.movies = this.moviesServices.getMovies();
+    this.moviesServices.getMovies()
+    .subscribe(data => {
+      this.movies = data
+    })
   }
 
-  ionViewWillEnter() {
-    this.movies = this.moviesServices.getMovies();
-  }
+  // ionViewWillEnter() {
+    
+  // }
 
 }

@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="secondary">
     <ion-buttons slot="start"> 
       <ion-back-button defaultHref = "/places"></ion-back-button>
@@ -41,5 +41,26 @@
   </ion-grid>
 </ion-content>
 
-<app-navbar></app-navbar>
+<app-navbar></app-navbar> -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/movies"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Data from API
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-card *ngFor="let movie of movies">
+      <ion-card-content>
+        <p>Studio: {{movie.studio}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
 
