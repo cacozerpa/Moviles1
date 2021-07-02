@@ -13,11 +13,11 @@ export class MoviesPage implements OnInit {
   constructor(private moviesServices: MoviesService) { }
 
   ngOnInit() {
-    // this.moviesServices.getMovies()
-    // .subscribe(data => {
-    //   console.log(data)
-    //   this.movies = data;
-    // })
+    this.moviesServices.getMovies()
+    .subscribe(data => {
+      console.log(data.Title)
+      this.movies = data;
+    })
   }
 
   // ionViewWillEnter() {
