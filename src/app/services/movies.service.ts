@@ -13,9 +13,8 @@ export class MoviesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getMovies(): Observable<Movie>{
-
-    return this.httpClient.get<Movie>('http://www.omdbapi.com/?apikey=60f3ec&t=godfather');
+  getMovies(){
+    return this.httpClient.get<>('http://www.omdbapi.com/?apikey=60f3ec&t=godfather');
   }
 
 }

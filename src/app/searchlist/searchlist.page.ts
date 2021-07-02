@@ -11,7 +11,11 @@ export class SearchlistPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // this.movies = this.moviesServices.getMovies();
+  }
 
+  ionViewWillEnter() {
+    // this.movies = this.moviesServices.getMovies();
   }
 
 }
